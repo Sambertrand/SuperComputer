@@ -33,6 +33,7 @@
             this.Help = new System.Windows.Forms.Button();
             this.Save = new System.Windows.Forms.Button();
             this.Compute = new System.Windows.Forms.Button();
+            this.Clear = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Output
@@ -83,12 +84,23 @@
             this.Compute.UseVisualStyleBackColor = true;
             this.Compute.Click += new System.EventHandler(this.Compute_Click);
             // 
+            // Clear
+            // 
+            this.Clear.Location = new System.Drawing.Point(772, 480);
+            this.Clear.Name = "Clear";
+            this.Clear.Size = new System.Drawing.Size(112, 26);
+            this.Clear.TabIndex = 5;
+            this.Clear.Text = "Clear";
+            this.Clear.UseVisualStyleBackColor = true;
+            this.Clear.Click += new System.EventHandler(this.Clear_Click);
+            // 
             // SuperComputer
             // 
             this.AcceptButton = this.Compute;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(897, 621);
+            this.Controls.Add(this.Clear);
             this.Controls.Add(this.Compute);
             this.Controls.Add(this.Save);
             this.Controls.Add(this.Help);
@@ -108,6 +120,7 @@
         private System.Windows.Forms.Button Help;
         private System.Windows.Forms.Button Save;
         private System.Windows.Forms.Button Compute;
+        private System.Windows.Forms.Button Clear;
     }
 }
 

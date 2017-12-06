@@ -38,5 +38,10 @@ namespace SuperComputer
         {
 
         }
+
+        private void Clear_Click(object sender, EventArgs e)
+        {
+            Output.Text = "";
+        }
     }
 }
