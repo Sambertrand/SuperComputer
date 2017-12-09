@@ -34,6 +34,7 @@
             this.Save = new System.Windows.Forms.Button();
             this.Compute = new System.Windows.Forms.Button();
             this.Clear = new System.Windows.Forms.Button();
+            this.Load = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Output
@@ -86,13 +87,22 @@
             // 
             // Clear
             // 
-            this.Clear.Location = new System.Drawing.Point(772, 480);
+            this.Clear.Location = new System.Drawing.Point(768, 476);
             this.Clear.Name = "Clear";
-            this.Clear.Size = new System.Drawing.Size(112, 26);
+            this.Clear.Size = new System.Drawing.Size(117, 31);
             this.Clear.TabIndex = 5;
             this.Clear.Text = "Clear";
             this.Clear.UseVisualStyleBackColor = true;
             this.Clear.Click += new System.EventHandler(this.Clear_Click);
+            // 
+            // Load
+            // 
+            this.Load.Location = new System.Drawing.Point(769, 66);
+            this.Load.Name = "Load";
+            this.Load.Size = new System.Drawing.Size(116, 39);
+            this.Load.TabIndex = 6;
+            this.Load.Text = "Load funcion";
+            this.Load.UseVisualStyleBackColor = true;
             // 
             // SuperComputer
             // 
@@ -100,6 +110,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(897, 621);
+            this.Controls.Add(this.Load);
             this.Controls.Add(this.Clear);
             this.Controls.Add(this.Compute);
             this.Controls.Add(this.Save);
@@ -121,6 +132,7 @@
         private System.Windows.Forms.Button Save;
         private System.Windows.Forms.Button Compute;
         private System.Windows.Forms.Button Clear;
+        private System.Windows.Forms.Button Load;
     }
 }
 
