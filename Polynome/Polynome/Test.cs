@@ -21,6 +21,7 @@ namespace Polynome
         private double[] coef4 = {2, 0};
         Polynome pol4;
         Polynome polP;
+        Polynome polS;
 
         [SetUp()]
         public void Init()
@@ -55,6 +56,14 @@ namespace Polynome
             Assert.AreEqual("2", polP.ToString());
             polP = pol1 + pol3 + pol4;
             Assert.AreEqual("3x^2-1x+3", polP.ToString());
+        }
+        [Test()]
+        public void TestPolSub()
+        {
+            polS = pol1 - pol1;
+            Assert.AreEqual("0", polS.ToString());
+            polS = pol1 - pol2;
+            Assert.AreEqual("6x^2+4x", polS.ToString());
         }
     }
 }

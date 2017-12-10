@@ -3,18 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using SuperComputer;
 
 namespace Polynome
 {
     public class Polynome
     {
         private double[] coeffs;
+        public double[] Coeffs
+        {
+            get { return coeffs; }
+        }
+
         private int degree;
+        public int Degree
+        {
+            get { return degree; }
+        }
 
         public Polynome(double[] coeffs)
         {
-            while (coeffs.Last() == 0)
+            while (coeffs.Last() == 0 && coeffs.Length > 1)
                 coeffs = coeffs.Take(coeffs.Count() - 1).ToArray();
 
             this.coeffs = coeffs;
@@ -53,7 +61,6 @@ namespace Polynome
 
         public static Polynome operator + (Polynome left, Polynome right)
         {
-           
             Polynome smaller;
             Polynome bigger;
             int i = 0;
@@ -81,14 +88,18 @@ namespace Polynome
             return new Polynome(coef);
         }
 
-        public int Degree
+        public static Polynome operator - (Polynome left, Polynome right)
         {
-            get { return degree; }
+            double[] invcoef = new double[right.Degree + 1];
+            int i = 0;
+            while (i <= right.Degree)
+            {
+                invcoef[i] = -right.Coeffs[i];
+                i++;
+            }
+            Polynome invright = new Polynome(invcoef);
+            return left + invright;
         }
 
-        public double[] Coeffs
-        {
-            get { return coeffs; }
-        }
     }
 }
