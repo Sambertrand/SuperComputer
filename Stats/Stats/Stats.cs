@@ -44,9 +44,7 @@ namespace Stats
             double result = 0;
             if (pool.Count() > 1)
             {
-                double avg = pool.Average();
-                double sum = pool.Sum(d => Math.Pow(d - avg, 2));
-                result = Math.Sqrt((sum) / (pool.Count() - 1));
+                result = Math.Sqrt(Variance());
             }
             else
             {
