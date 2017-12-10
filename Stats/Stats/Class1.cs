@@ -26,9 +26,9 @@ namespace Stats
         {
             double result = 0;
             if (pool.Count() > 0)
-            {     
-                double avg = pool.Average();     
-                double sum = pool.Sum(d => Math.Pow(d - avg, 2));     
+            {
+                double avg = pool.Average();
+                double sum = pool.Sum(d => Math.Pow(d - avg, 2));
                 result = (sum) / (pool.Count() - 1);
             }
             return result;
@@ -39,8 +39,8 @@ namespace Stats
         {
             double result = 0;
             if (pool.Count() > 0)
-            {      
-                double avg = pool.Average();   
+            {
+                double avg = pool.Average();
                 double sum = pool.Sum(d => Math.Pow(d - avg, 2));
                 result = Math.Sqrt((sum) / (pool.Count() - 1));
             }
