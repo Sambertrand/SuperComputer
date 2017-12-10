@@ -14,16 +14,38 @@ namespace Stats
         {
             this.pool = pool;
         }
-        //moyenne variance et ecart type
-        public double Average()
+        //moyenne
+        public double Average(double[] pool)
         {
-            double sum = pool.Sum();
-            double count = pool.Count();
-            double average = sum / count;
+            double average = pool.Average();
             return average;
         }
 
-        public
+        //variance
+        public double Variance(double[] pool)
+        {
+            double result = 0;
+            if (pool.Count() > 0)
+            {     
+                double avg = pool.Average();     
+                double sum = pool.Sum(d => Math.Pow(d - avg, 2));     
+                result = (sum) / (pool.Count() - 1);
+            }
+            return result;
+        }
+
+        //écart type
+        public double StandartDeviation(double[] pool)
+        {
+            double result = 0;
+            if (pool.Count() > 0)
+            {      
+                double avg = pool.Average();   
+                double sum = pool.Sum(d => Math.Pow(d - avg, 2));
+                result = Math.Sqrt((sum) / (pool.Count() - 1));
+            }
+            return result;
+        }
 
     }
 }
