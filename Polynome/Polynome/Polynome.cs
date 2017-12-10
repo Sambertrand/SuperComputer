@@ -34,11 +34,11 @@ namespace Polynome
                     }
                     else
                     {
-                        result = coeff.ToString() + "x^" + i.ToString()+ " " + result;
+                        result = coeff.ToString() + "x^" + i.ToString() + result;
                     }
                     if (i+1 != coeffs.Count() && coeff > 0)
                     {
-                        result = " +" + result;
+                        result = "+" + result;
                     }
                 }
                 i++;
