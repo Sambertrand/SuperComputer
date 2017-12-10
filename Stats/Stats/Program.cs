@@ -8,8 +8,22 @@ namespace Stats
 {
     public class Stats
     {
-        private double[];
+        private double[] pool;
 
-        public 
+        public Stats(double[] pool)
+        {
+            this.pool = pool;
+        }
+        //moyenne variance et ecart type
+        public double Average()
+        {
+            double sum = pool.Sum();
+            double count = pool.Count();
+            double average = sum / count;
+            return average;
+        }
+
+        public
+
     }
 }
