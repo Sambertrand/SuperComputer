@@ -74,31 +74,45 @@ namespace Polynome
                 smaller = right;
                 bigger = left;
             }
-            double[] coef = new double[bigger.Degree + 1];
+            double[] coefs = new double[bigger.Degree + 1];
             while (i <= smaller.Degree)
             {
-                coef[i] = smaller.Coeffs[i] + bigger.Coeffs[i];
+                coefs[i] = smaller.Coeffs[i] + bigger.Coeffs[i];
                 i++;
             }
             while (i <= bigger.Degree)
             {
-                coef[i] = bigger.Coeffs[i];
+                coefs[i] = bigger.Coeffs[i];
                 i++;
             }
-            return new Polynome(coef);
+            return new Polynome(coefs);
         }
 
         public static Polynome operator - (Polynome left, Polynome right)
         {
-            double[] invcoef = new double[right.Degree + 1];
+            double[] invcoefs = new double[right.Degree + 1];
             int i = 0;
             while (i <= right.Degree)
             {
-                invcoef[i] = -right.Coeffs[i];
+                invcoefs[i] = -right.Coeffs[i];
                 i++;
             }
-            Polynome invright = new Polynome(invcoef);
+            Polynome invright = new Polynome(invcoefs);
             return left + invright;
+        }
+
+        public Polynome Derivate()
+        {
+            double[] coefs = new double[degree];
+            int i = 1;
+            while (i <= degree)
+            {
+                coefs[i - 1] = coeffs[i] * i;
+                i++;
+            }
+            if (degree == 0)
+                coefs = new double[] { 0 };
+            return new Polynome(coefs);
         }
 
     }

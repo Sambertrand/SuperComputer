@@ -18,10 +18,11 @@ namespace Polynome
         Polynome pol2;
         private double[] coef3 = { 0, -3 };
         Polynome pol3;
-        private double[] coef4 = {2, 0};
+        private double[] coef4 = { 2, 0 };
         Polynome pol4;
         Polynome polP;
         Polynome polS;
+        Polynome polD;
 
         [SetUp()]
         public void Init()
@@ -64,6 +65,18 @@ namespace Polynome
             Assert.AreEqual("0", polS.ToString());
             polS = pol1 - pol2;
             Assert.AreEqual("6x^2+4x", polS.ToString());
+        }
+        [Test()]
+        public void TestPolDeriv()
+        {
+            polD = pol1.Derivate();
+            Assert.AreEqual("6x+2", polD.ToString());
+            polD.Derivate();
+            Assert.AreEqual("6x+2", polD.ToString());
+            polD = polD.Derivate();
+            Assert.AreEqual("6", polD.ToString());
+            polD = polD.Derivate();
+            Assert.AreEqual("0", polD.ToString());
         }
     }
 }

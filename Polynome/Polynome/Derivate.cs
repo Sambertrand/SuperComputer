@@ -13,7 +13,7 @@ namespace Polynome
         private string name = "Derivate";
         public string Name
         {
-            get {return name;}
+            get { return name; }
         }
 
         private string help = "this is a help message";
@@ -21,6 +21,18 @@ namespace Polynome
         {
             get { return help; }
         }
-        private
+
+        private string[] paramname = { "Un polynome" };
+        public string[] ParametersName
+        {
+            get { return paramname; }
+        }
+
+        public Polynome Evaluate(string[] args)
+        {
+            double[] coeffs = Array.ConvertAll(args, double.Parse);
+            Polynome polynome = new Polynome(coeffs);
+            return polynome.Derivate();
+        }
     }
 }

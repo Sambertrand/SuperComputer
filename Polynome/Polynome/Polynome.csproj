@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Derivate.cs" />
     <Compile Include="Test.cs" />
     <Compile Include="Polynome.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
