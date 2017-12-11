@@ -122,23 +122,42 @@ namespace Polynome
             if (degree == 1)
                 result = coeffs[0] / coeffs[1];
             else if (degree == 0)
-                result = null;
+                throw new ArgumentException("Polynome cannot be of degree 0");
             else
             {
                 Polynome polD = Derivate();
-				while (polD.Degree > 1)
-					polD = polD.Derivate();
+                while (polD.Degree > 1)
+                    polD = polD.Derivate();
                 result = polD.Coeffs[0] / polD.Coeffs[1];
             }
             return result;
 
         }
 
-        private List<double> newtmethod(double x0)
+        public double newtmethod(double xo)
         {
-            double root;
+            double xi = xo;
+            int i = 0;
+            while ((Apply(xo) > 0.001 || Apply(xo) < -0.001))
+            {
+                xo = (xo - Apply(xo)) / Derivate().Apply(xo);
+                if ((Math.Abs(Apply(xi)) <= Math.Abs(Apply(xo)) && i > 2) || i >= 100000000)
+                    throw new ArgumentException("Mauvais x0");
+                i++;
+            }
+            return xo;
+        }
 
-            return null;
+        public double Apply(double val)
+        {
+            double result = coeffs[0];
+            int i = 1;
+            while (i <= degree)
+            {
+                result += coeffs[i] * Math.Pow(val,i);
+                i++;
+            }
+            return result;
         }
 
     }

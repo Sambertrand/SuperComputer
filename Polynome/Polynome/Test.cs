@@ -11,12 +11,13 @@ namespace Polynome
     [TestFixture()]
     public class TestPolynome
     {
-
+        double result;
+        double expected;
         private double[] coef1 = { 1, 2, 3, 0 };
         Polynome pol1;
         private double[] coef2 = { 1, -2, -3 };
         Polynome pol2;
-        private double[] coef3 = { 0, -3 };
+        private double[] coef3 = { 0, 0, -3 };
         Polynome pol3;
         private double[] coef4 = { 2, 0 };
         Polynome pol4;
@@ -39,7 +40,7 @@ namespace Polynome
         {
             Assert.AreEqual("3x^2+2x+1", pol1.ToString());
             Assert.AreEqual("-3x^2-2x+1", pol2.ToString());
-            Assert.AreEqual("-3x", pol3.ToString());
+            Assert.AreEqual("-3x^2", pol3.ToString());
             Assert.AreEqual("2", pol4.ToString());
         }
 
@@ -47,7 +48,7 @@ namespace Polynome
         public void TestPolDegree()
         {
             Assert.AreEqual(2, pol1.Degree);
-            Assert.AreEqual(1, pol3.Degree);
+            Assert.AreEqual(0, pol4.Degree);
         }
 
         [Test()]
@@ -56,15 +57,15 @@ namespace Polynome
             polP = pol1 + pol2;
             Assert.AreEqual("2", polP.ToString());
             polP = pol1 + pol3 + pol4;
-            Assert.AreEqual("3x^2-1x+3", polP.ToString());
+            Assert.AreEqual("2x+3", polP.ToString());
         }
         [Test()]
         public void TestPolSub()
         {
             polS = pol1 - pol1;
             Assert.AreEqual("0", polS.ToString());
-            polS = pol1 - pol2;
-            Assert.AreEqual("6x^2+4x", polS.ToString());
+            polS = pol1 - pol2 - pol4;
+            Assert.AreEqual("6x^2+4x-2", polS.ToString());
         }
         [Test()]
         public void TestPolDeriv()
@@ -77,6 +78,41 @@ namespace Polynome
             Assert.AreEqual("6", polD.ToString());
             polD = polD.Derivate();
             Assert.AreEqual("0", polD.ToString());
+        }
+
+        [Test()]
+        public void TestPolRootl()
+        {
+            result = pol1.FindRootsLine();
+            expected =  2.0 / 6.0 ;
+            Assert.AreEqual(expected, result);
+        }
+        [Test()]
+        public void TestPolApply()
+        {
+            result = pol1.Apply(2);
+            expected = 17;
+            Assert.AreEqual(expected, result);
+            result = pol4.Apply(2);
+            expected = 2;
+            Assert.AreEqual(expected, result);
+            result = pol3.Apply(0);
+            expected = 0;
+            Assert.AreEqual(expected, result);
+
+
+        }
+
+        [Test()]
+        public void TestPolNewt()
+        {
+            result = pol3.newtmethod(10);
+            Assert.LessOrEqual(pol3.Apply(result), 0.01);
+            Assert.GreaterOrEqual(pol3.Apply(result), -0.01);
+            
+            result = pol2.newtmethod(-3);
+            Assert.LessOrEqual(result, 1.01);
+            Assert.GreaterOrEqual(result, 0.99);
         }
     }
 }
