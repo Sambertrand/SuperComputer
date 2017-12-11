@@ -140,7 +140,7 @@ namespace Polynome
             int i = 0;
             while ((Apply(xo) > 0.001 || Apply(xo) < -0.001))
             {
-                xo = (xo - Apply(xo)) / Derivate().Apply(xo);
+                xo = (Apply(xo) / Derivate().Apply(xo)) + xo;
                 if ((Math.Abs(Apply(xi)) <= Math.Abs(Apply(xo)) && i > 2) || i >= 100000000)
                     throw new ArgumentException("Mauvais x0");
                 i++;
