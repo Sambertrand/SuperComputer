@@ -115,5 +115,31 @@ namespace Polynome
             return new Polynome(coefs);
         }
 
+        public List<double> FindRoots()
+        {
+            List<double> result = new List<double>();
+            double[] x;
+            if (degree == 0)
+                result = null;
+            if (degree == 1)
+                result.Add(coeffs[0] / coeffs[1]);
+            while (x.Count() > 1)
+            {
+                x = this.Derivate().FindRoots();
+            }
+            else
+            {
+                result = newtmethod(x[0]);
+            }
+            return result;
+        }
+
+        private List<double> newtmethod(double x0)
+        {
+            double root;
+
+            return null;
+        }
+
     }
 }
