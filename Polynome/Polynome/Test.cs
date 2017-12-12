@@ -13,11 +13,13 @@ namespace Polynome
     {
         double result;
         double expected;
+        List<double> roots;
+        List<double> rootsexp;
         private double[] coef1 = { 1, 2, 3, 0 };
         Polynome pol1;
         private double[] coef2 = { 1, -2, -3 };
         Polynome pol2;
-        private double[] coef3 = { 0, 0, -3 };
+        private double[] coef3 = { 0, 0, 1 };
         Polynome pol3;
         private double[] coef4 = { 2, 0 };
         Polynome pol4;
@@ -40,7 +42,7 @@ namespace Polynome
         {
             Assert.AreEqual("3x^2+2x+1", pol1.ToString());
             Assert.AreEqual("-3x^2-2x+1", pol2.ToString());
-            Assert.AreEqual("-3x^2", pol3.ToString());
+            Assert.AreEqual("x^2", pol3.ToString());
             Assert.AreEqual("2", pol4.ToString());
         }
 
@@ -56,8 +58,7 @@ namespace Polynome
         {
             polP = pol1 + pol2;
             Assert.AreEqual("2", polP.ToString());
-            polP = pol1 + pol3 + pol4;
-            Assert.AreEqual("2x+3", polP.ToString());
+
         }
         [Test()]
         public void TestPolSub()
@@ -72,6 +73,7 @@ namespace Polynome
         {
             polD = pol1.Derivate();
             Assert.AreEqual("6x+2", polD.ToString());
+            Assert.AreEqual(1, polD.Degree);
             polD.Derivate();
             Assert.AreEqual("6x+2", polD.ToString());
             polD = polD.Derivate();
@@ -84,7 +86,7 @@ namespace Polynome
         public void TestPolRootl()
         {
             result = pol1.FindRootsLine();
-            expected =  2.0 / 6.0 ;
+            expected = 2.0 / 6.0;
             Assert.AreEqual(expected, result);
         }
         [Test()]
@@ -103,16 +105,16 @@ namespace Polynome
 
         }
 
+        
         [Test()]
-        public void TestPolNewt()
+        public void TestPolRoots()
         {
-            result = pol3.newtmethod(10);
-            Assert.LessOrEqual(pol3.Apply(result), 0.01);
-            Assert.GreaterOrEqual(pol3.Apply(result), -0.01);
-            
-            result = pol2.newtmethod(-3);
-            Assert.LessOrEqual(result, 1.01);
-            Assert.GreaterOrEqual(result, 0.99);
+            rootsexp = new List<double> { 0, 0};
+            roots = pol3.GetRoots();
+            Assert.AreEqual(rootsexp, roots);
+
+
+
         }
     }
 }

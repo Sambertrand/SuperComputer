@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 namespace Polynome
 {
     public class Polynome
@@ -41,10 +40,15 @@ namespace Polynome
                         result = coeff.ToString();
 
                     else if (i == 1)
-                        result = coeff.ToString() +"x" + result;
-
+                        if (coeff != 1)
+                            result = coeff.ToString() +"x" + result;
+                        else
+                            result = "x" + result;
                     else
-                        result = coeff.ToString() + "x^" + i.ToString() + result;
+                        if (coeff != 1)
+                            result = coeff.ToString() + "x^" + i.ToString() + result;
+                        else
+                            result = "x^" + i.ToString() + result;
 
                     if (i + 1 < coeffs.Length && coeff > 0)
                         result = "+" + result;
@@ -122,7 +126,7 @@ namespace Polynome
             if (degree == 1)
                 result = coeffs[0] / coeffs[1];
             else if (degree == 0)
-                throw new ArgumentException("Polynome cannot be of degree 0");
+                throw new Exception("Polynome cannot be of degree 0");
             else
             {
                 Polynome polD = Derivate();
@@ -134,18 +138,18 @@ namespace Polynome
 
         }
 
-        public double newtmethod(double xo)
+        private double newtmethod(double xo)
         {
             double xi = xo;
             int i = 0;
-            while ((Apply(xo) > 0.001 || Apply(xo) < -0.001))
+            while (Apply(xo) != 0 && i < 10000000)
             {
-                xo = (Apply(xo) / Derivate().Apply(xo)) + xo;
-                if ((Math.Abs(Apply(xi)) <= Math.Abs(Apply(xo)) && i > 2) || i >= 100000000)
-                    throw new ArgumentException("Mauvais x0");
+                if ((Math.Abs(Apply(xi)) <= Math.Abs(Apply(xo)) && i > 3) /*|| Derivate().Apply(xo) == 0*/)
+                    throw new ArgumentException("Bad x0");
+                xo = (-Apply(xo) / Derivate().Apply(xo)) + xo;
                 i++;
             }
-            return xo;
+            return Math.Round(xo, 3);
         }
 
         public double Apply(double val)
@@ -159,6 +163,33 @@ namespace Polynome
             }
             return result;
         }
+        
+        public List<double> GetRoots()
+        {
+            List<double> roots = new List<double>();
+            if (Degree == 1)
+            {
+                roots.Add(FindRootsLine());
+            }
+            if (Degree > 1)
+            {
+                List<double> extrems = Extremi();
+                roots.Add(newtmethod(extrems.First() - 10));
+                
+                for (int i = 1; i < extrems.Count(); i++)
+                {
+                    roots.Add(newtmethod((extrems[i] - extrems[i - 1]) / 2.0)); 
+                }
 
+                roots.Add(newtmethod(extrems.Last() + 10));
+            }
+            return roots;
+        }
+        
+        public List<double> Extremi()
+        {
+            List<double> extrems = Derivate().GetRoots();
+            return extrems;
+        }
     }
 }
