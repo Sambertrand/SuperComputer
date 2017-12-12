@@ -124,7 +124,7 @@ namespace Polynome
             double result;
 
             if (degree == 1)
-                result = coeffs[0] / coeffs[1];
+                result = - coeffs[0] / coeffs[1];
             else if (degree == 0)
                 throw new Exception("Polynome cannot be of degree 0");
             else
@@ -132,7 +132,7 @@ namespace Polynome
                 Polynome polD = Derivate();
                 while (polD.Degree > 1)
                     polD = polD.Derivate();
-                result = polD.Coeffs[0] / polD.Coeffs[1];
+                result = - polD.Coeffs[0] / polD.Coeffs[1];
             }
             return result;
 
@@ -144,7 +144,7 @@ namespace Polynome
             int i = 0;
             while (Apply(xo) != 0 && i < 10000000)
             {
-                if ((Math.Abs(Apply(xi)) <= Math.Abs(Apply(xo)) && i > 3) /*|| Derivate().Apply(xo) == 0*/)
+                if ((Math.Abs(Apply(xi)) <= Math.Abs(Apply(xo)) && i > 3) || Derivate().Apply(xo) == 0)
                     throw new ArgumentException("Bad x0");
                 xo = (-Apply(xo) / Derivate().Apply(xo)) + xo;
                 i++;
@@ -174,14 +174,17 @@ namespace Polynome
             if (Degree > 1)
             {
                 List<double> extrems = Extremi();
-                roots.Add(newtmethod(extrems.First() - 10));
+                try { roots.Add(newtmethod(extrems.First() - 10)); }
+                catch (ArgumentException) { }
                 
                 for (int i = 1; i < extrems.Count(); i++)
                 {
-                    roots.Add(newtmethod((extrems[i] - extrems[i - 1]) / 2.0)); 
+                    try { roots.Add(newtmethod((extrems[i] - extrems[i - 1]) / 2.0)); }
+                    catch (ArgumentException) { }
                 }
 
-                roots.Add(newtmethod(extrems.Last() + 10));
+                try { roots.Add(newtmethod(extrems.Last() + 10)); }
+                catch (ArgumentException) { }
             }
             return roots;
         }

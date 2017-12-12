@@ -83,10 +83,10 @@ namespace Polynome
         }
 
         [Test()]
-        public void TestPolRootl()
+        public void TestPolRootLine()
         {
             result = pol1.FindRootsLine();
-            expected = 2.0 / 6.0;
+            expected = - 2.0 / 6.0;
             Assert.AreEqual(expected, result);
         }
         [Test()]
@@ -112,9 +112,12 @@ namespace Polynome
             rootsexp = new List<double> { 0, 0};
             roots = pol3.GetRoots();
             Assert.AreEqual(rootsexp, roots);
-
-
-
+            rootsexp = new List<double> { -1, 0.333 };
+            roots = pol2.GetRoots();
+            Assert.AreEqual(rootsexp, roots);
+            rootsexp = new List<double> { };
+            roots = pol1.GetRoots();
+            Assert.AreEqual(rootsexp, roots);
         }
     }
 }
