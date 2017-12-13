@@ -101,8 +101,9 @@
             this.Load.Name = "Load";
             this.Load.Size = new System.Drawing.Size(116, 39);
             this.Load.TabIndex = 6;
-            this.Load.Text = "Load funcion";
+            this.Load.Text = "Load function";
             this.Load.UseVisualStyleBackColor = true;
+            this.Load.Click += new System.EventHandler(this.Load_Click);
             // 
             // SuperComputer
             // 
@@ -132,7 +133,7 @@
         private System.Windows.Forms.Button Save;
         private System.Windows.Forms.Button Compute;
         private System.Windows.Forms.Button Clear;
-        private System.Windows.Forms.Button Load;
+        private new System.Windows.Forms.Button Load;
     }
 }
 
