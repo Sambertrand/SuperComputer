@@ -5,10 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using SuperComputer;
 
-
-namespace Polynome
+namespace Derivate
 {
-    class PolDerivate : Function<Polynome>
+    public class Derivate : Function<Polynome.Polynome>
     {
         private string name = "Derivate";
         public string Name
@@ -28,10 +27,10 @@ namespace Polynome
             get { return paramname; }
         }
 
-        public Polynome Evaluate(string[] args)
+        public Polynome.Polynome Evaluate(string[] args)
         {
             double[] coeffs = Array.ConvertAll(args, double.Parse);
-            Polynome polynome = new Polynome(coeffs);
+            Polynome.Polynome polynome = new Polynome.Polynome(coeffs);
             return polynome.Derivate();
         }
     }

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2003
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Polynome", "Polynome\Polynome.csproj", "{212FB883-E1C7-4872-AC4A-45B16BF5967C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Derivate", "Derivate\Derivate.csproj", "{C84DF0B0-53C5-457E-85D4-54EA41D87046}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{212FB883-E1C7-4872-AC4A-45B16BF5967C}.Debug|Any CPU.ActiveCfg = Release|Any CPU
-		{212FB883-E1C7-4872-AC4A-45B16BF5967C}.Debug|Any CPU.Build.0 = Release|Any CPU
-		{212FB883-E1C7-4872-AC4A-45B16BF5967C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{212FB883-E1C7-4872-AC4A-45B16BF5967C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C84DF0B0-53C5-457E-85D4-54EA41D87046}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C84DF0B0-53C5-457E-85D4-54EA41D87046}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C84DF0B0-53C5-457E-85D4-54EA41D87046}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C84DF0B0-53C5-457E-85D4-54EA41D87046}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {0408BC56-B7F2-4934-B9DA-B967E502FB82}
+		SolutionGuid = {DB58ECED-A772-43FB-BD97-05C6D09B488F}
 	EndGlobalSection
 EndGlobal

@@ -5,10 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using SuperComputer;
 
-
-namespace Polynome
+namespace Roots
 {
-    class PolRoots : Function<List<double>>
+    public class Roots : Function<double[]>
     {
         private string name = "Get roots";
         public string Name
@@ -28,11 +27,11 @@ namespace Polynome
             get { return paramname; }
         }
 
-        public List<double> Evaluate(string[] args)
+        public double[] Evaluate(string[] args)
         {
             double[] coeffs = Array.ConvertAll(args, double.Parse);
-            Polynome polynome = new Polynome(coeffs);
-            return polynome.Roots();
+            Polynome.Polynome polynome = new Polynome.Polynome(coeffs);
+            return polynome.Roots().ToArray();
         }
     }
 }
