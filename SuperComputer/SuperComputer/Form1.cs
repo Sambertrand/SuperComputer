@@ -43,5 +43,10 @@ namespace SuperComputer
         {
             Output.Text = "";
         }
+
+        private void Load_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
