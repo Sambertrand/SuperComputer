@@ -110,13 +110,13 @@ namespace Polynome
         public void TestPolRoots()
         {
             rootsexp = new List<double> { 0, 0};
-            roots = pol3.GetRoots();
+            roots = pol3.Roots();
             Assert.AreEqual(rootsexp, roots);
             rootsexp = new List<double> { -1, 0.333 };
-            roots = pol2.GetRoots();
+            roots = pol2.Roots();
             Assert.AreEqual(rootsexp, roots);
             rootsexp = new List<double> { };
-            roots = pol1.GetRoots();
+            roots = pol1.Roots();
             Assert.AreEqual(rootsexp, roots);
         }
     }

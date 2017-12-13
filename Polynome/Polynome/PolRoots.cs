@@ -8,9 +8,9 @@ using SuperComputer;
 
 namespace Polynome
 {
-    class Derivate : Function<Polynome>
+    class PolRoots : Function<List<double>>
     {
-        private string name = "Derivate";
+        private string name = "Get roots";
         public string Name
         {
             get { return name; }
@@ -28,11 +28,11 @@ namespace Polynome
             get { return paramname; }
         }
 
-        public Polynome Evaluate(string[] args)
+        public List<double> Evaluate(string[] args)
         {
             double[] coeffs = Array.ConvertAll(args, double.Parse);
             Polynome polynome = new Polynome(coeffs);
-            return polynome.Derivate();
+            return polynome.Roots();
         }
     }
 }

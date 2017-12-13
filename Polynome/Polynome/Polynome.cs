@@ -142,7 +142,7 @@ namespace Polynome
         {
             double xi = xo;
             int i = 0;
-            while (Apply(xo) != 0 && i < 10000000)
+            while (Apply(xo) != 0 && i < 1000000)
             {
                 if ((Math.Abs(Apply(xi)) <= Math.Abs(Apply(xo)) && i > 3) || Derivate().Apply(xo) == 0)
                     throw new ArgumentException("Bad x0");
@@ -164,7 +164,7 @@ namespace Polynome
             return result;
         }
         
-        public List<double> GetRoots()
+        public List<double> Roots()
         {
             List<double> roots = new List<double>();
             if (Degree == 1)
@@ -191,7 +191,7 @@ namespace Polynome
         
         public List<double> Extremi()
         {
-            List<double> extrems = Derivate().GetRoots();
+            List<double> extrems = Derivate().Roots();
             return extrems;
         }
     }
