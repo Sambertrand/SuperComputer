@@ -16,7 +16,7 @@ namespace SuperComputer
         [STAThread]
         static void Main()
         {
-            foreach (IFunction function in LoadFunction(@"../../../../dll/Polynome.dll"))
+            foreach (IFunction function in LoadFunction(@"../../../../dll/Combefis.dll"))
             {
                 Console.WriteLine(function.Name);
                 Console.WriteLine(function.HelpMessage);
