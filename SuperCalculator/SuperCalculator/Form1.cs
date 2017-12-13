@@ -12,21 +12,22 @@ using System.IO;
 
 namespace SuperCalculator
 {
-    public partial class Form1 : Form
+    public partial class SuperCalculator3000 : Form
     {
-        public Form1()
+        public SuperCalculator3000()
         {
             //IFunction function = Program.LoadFunction(path);
             InitializeComponent();
         }
         private void Input_TextChanged(object sender, EventArgs e)
         {
-
+            
         }
         //va revoyer un 2eme form qui afiche chaque help d'afilé dans la text box
         private void Help_Click_1(object sender, EventArgs e)
         {
-
+            Helpform Helpform = new Helpform();
+            Helpform.Show();
         }
 
         //loads new functions
@@ -82,6 +83,11 @@ namespace SuperCalculator
 
         //output text
         private void Ouput_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Input_TextChanged_1(object sender, EventArgs e)
         {
 
         }

@@ -20,14 +20,14 @@ namespace SuperCalculator
         {
 
 
-            IFunction function = LoadFunction(@"E:\MyDocs\School\ECAM\BA3\POO\SuperComputer\dll\Roots.dll");
-            Console.WriteLine(function.Name);
-            Console.WriteLine("");
-            Console.WriteLine(function.HelpMessage);
+            //IFunction function = LoadFunction(@"E:\MyDocs\School\ECAM\BA3\POO\SuperComputer\dll\Roots.dll");
+            //Console.WriteLine(function.Name);
+            //Console.WriteLine("");
+            //Console.WriteLine(function.HelpMessage);
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new SuperCalculator3000());
         }
 
         public static IFunction LoadFunction(string path)

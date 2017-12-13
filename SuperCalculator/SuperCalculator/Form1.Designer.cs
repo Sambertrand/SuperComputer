@@ -1,6 +1,6 @@
 ﻿namespace SuperCalculator
 {
-    partial class Form1
+    partial class SuperCalculator3000
     {
         /// <summary>
         /// Required designer variable.
@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SuperCalculator3000));
             this.Compute = new System.Windows.Forms.Button();
             this.Load = new System.Windows.Forms.Button();
             this.Clear = new System.Windows.Forms.Button();
@@ -39,9 +40,10 @@
             // 
             // Compute
             // 
+            this.Compute.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.Compute.Location = new System.Drawing.Point(839, 542);
             this.Compute.Name = "Compute";
-            this.Compute.Size = new System.Drawing.Size(124, 52);
+            this.Compute.Size = new System.Drawing.Size(124, 54);
             this.Compute.TabIndex = 0;
             this.Compute.Text = "Compute";
             this.Compute.UseVisualStyleBackColor = true;
@@ -49,6 +51,7 @@
             // 
             // Load
             // 
+            this.Load.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Load.Location = new System.Drawing.Point(839, 70);
             this.Load.Name = "Load";
             this.Load.Size = new System.Drawing.Size(124, 35);
@@ -59,7 +62,8 @@
             // 
             // Clear
             // 
-            this.Clear.Location = new System.Drawing.Point(839, 500);
+            this.Clear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.Clear.Location = new System.Drawing.Point(839, 602);
             this.Clear.Name = "Clear";
             this.Clear.Size = new System.Drawing.Size(124, 36);
             this.Clear.TabIndex = 2;
@@ -69,6 +73,7 @@
             // 
             // Help
             // 
+            this.Help.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Help.Location = new System.Drawing.Point(839, 12);
             this.Help.Name = "Help";
             this.Help.Size = new System.Drawing.Size(124, 52);
@@ -79,7 +84,8 @@
             // 
             // Save
             // 
-            this.Save.Location = new System.Drawing.Point(839, 600);
+            this.Save.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.Save.Location = new System.Drawing.Point(839, 500);
             this.Save.Name = "Save";
             this.Save.Size = new System.Drawing.Size(124, 38);
             this.Save.TabIndex = 4;
@@ -89,9 +95,13 @@
             // 
             // Output
             // 
+            this.Output.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.Output.BackColor = System.Drawing.SystemColors.ControlLight;
             this.Output.Location = new System.Drawing.Point(12, 12);
             this.Output.Name = "Output";
+            this.Output.ReadOnly = true;
             this.Output.Size = new System.Drawing.Size(821, 524);
             this.Output.TabIndex = 5;
             this.Output.Text = "";
@@ -99,14 +109,18 @@
             // 
             // Input
             // 
+            this.Input.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.Input.Location = new System.Drawing.Point(12, 542);
             this.Input.Name = "Input";
             this.Input.Size = new System.Drawing.Size(821, 96);
             this.Input.TabIndex = 4;
             this.Input.Text = "";
+            this.Input.TextChanged += new System.EventHandler(this.Input_TextChanged_1);
             // 
-            // Form1
+            // SuperCalculator3000
             // 
+            this.AcceptButton = this.Compute;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
@@ -118,8 +132,9 @@
             this.Controls.Add(this.Clear);
             this.Controls.Add(this.Load);
             this.Controls.Add(this.Compute);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "SuperCalculator3000";
+            this.Text = "SuperCalculator3000";
             this.ResumeLayout(false);
 
         }
