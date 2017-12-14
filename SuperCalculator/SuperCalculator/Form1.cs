@@ -27,20 +27,19 @@ namespace SuperCalculator
                 {
                     try
                     {
-                        IFunction function = (IFunction) Activator.CreateInstance(type);
+                        IFunction function = (IFunction)Activator.CreateInstance(type);
                         functions.Add(function.Name, function);
-                        MessageBox.Show(function.Name);
                     }
-                    catch
+                    catch (MissingMethodException e)
                     {
-                        MessageBox.Show("This is not a dll based on SuperComputer interface !");
+                        MessageBox.Show("This is not a dll based on SuperComputer interface ! : \n" + e.Message);
                     }
                 }
             }
-            catch
+            catch (BadImageFormatException e)
             {
-                MessageBox.Show("This is not a dll !");
-            };
+                MessageBox.Show("This is not a good dll ! : \n" + e.Message);
+            }
         }
 
 
@@ -72,7 +71,7 @@ namespace SuperCalculator
             OpenFileDialog openFileDialog = new OpenFileDialog
             {
                 InitialDirectory = "c:\\",
-                Filter = "dll files (*.dll)|*.dll",
+                Filter = "dll files (*.dll)|*.dll|All files(*.*)| *.*",
                 FilterIndex = 1,
                 RestoreDirectory = true
             };

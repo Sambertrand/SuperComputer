@@ -144,7 +144,7 @@
         #endregion
 
         private System.Windows.Forms.Button Compute;
-        private System.Windows.Forms.Button Load;
+        new private System.Windows.Forms.Button Load;
         private System.Windows.Forms.Button Clear;
         private System.Windows.Forms.Button Help;
         private System.Windows.Forms.Button Save;
