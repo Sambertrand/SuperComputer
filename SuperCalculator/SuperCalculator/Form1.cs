@@ -20,7 +20,6 @@ namespace SuperCalculator
 
         private void LoadFunction(string path)
         {
-            MessageBox.Show(path);
             try
             {
                 Assembly dll = Assembly.LoadFile(path);
@@ -49,10 +48,8 @@ namespace SuperCalculator
             string featured = Path.GetFullPath("../../../../dll");
             foreach (string filename in Directory.EnumerateFiles(featured))
             {
-                MessageBox.Show(filename);
                 LoadFunction(filename);
             }
-            Output.Text = functions.Count().ToString();
             InitializeComponent();
         }
         private void Input_TextChanged(object sender, EventArgs e)
