@@ -103,10 +103,56 @@ namespace SuperCalculator
             Output.Text = "";
         }
 
+        private string Calcul(string input)
+        {
+            string result="";
+            string[] stuff = input.Split(' ');
+            string op = stuff[0];
+            string[] data = stuff.Skip(1).ToArray();
+            if (functions.ContainsKey(op))
+            {
+                IFunction function = functions[op];
+                Type type = function.GetType();
+                object eval = null;
+                try
+                {
+                    eval = type.InvokeMember("Evaluate", BindingFlags.InvokeMethod, null, function, new object[] { data });
+                }
+                catch
+                {
+                    result = "Wrong parameters";
+                }
+                if (eval is System.Collections.IEnumerable enumerable)
+                {
+                    result = "[";
+                    foreach (var item in enumerable)
+                    {
+                        result += item.ToString();
+                        result += " ,";
+
+                    }
+                    result = result.Remove(result.Length - 2);
+                    result += "]";
+                }
+                else if (eval != null)
+                {
+                    result = eval.ToString();
+                }
+            }
+            else
+            {
+                result = "Unkwon command";
+            }
+
+            return result;
+        }
+
         //gl
         private void Compute_Click(object sender, EventArgs e)
         {
-
+            Output.Text += ">" + Input.Text + "\n";
+            Output.Text += Calcul(Input.Text) + "\n";
+            Input.Text = "";
         }
 
         //save function
@@ -120,7 +166,7 @@ namespace SuperCalculator
         //output text
         private void Ouput_TextChanged(object sender, EventArgs e)
         {
-
+            
         }
 
         private void Input_TextChanged_1(object sender, EventArgs e)
