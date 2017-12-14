@@ -84,9 +84,11 @@ namespace SuperCalculator
                     {
                         using (myStream)
                         {
+                            int c = functions.Count();
                             path = openFileDialog.FileName;
                             LoadFunction(path);
-                            MessageBox.Show("Loaded" + path);
+                            if (c < functions.Count())
+                                MessageBox.Show("Loaded " + path);
                         }
                     }
                 }
