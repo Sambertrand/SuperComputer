@@ -8,15 +8,50 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SuperComputer;
+using System.Reflection;
+using Polynome;
 using System.IO;
 
 namespace SuperCalculator
 {
     public partial class SuperCalculator3000 : Form
     {
+        public Dictionary<string, IFunction> functions = new Dictionary<string, IFunction>();
+
+        private void LoadFunction(string path)
+        {
+            IFunction function;
+            try
+            {
+                Assembly dll = Assembly.LoadFile(path);
+                foreach (Type type in dll.GetExportedTypes())
+                {
+                    try
+                    {
+                        function = (IFunction) Activator.CreateInstance(type);
+                        functions.Add(function.Name, function);
+                    }
+                    catch
+                    {
+                        MessageBox.Show("This is not a dll based on SuperComputer interface !");
+                    }
+                }
+            }
+            catch
+            {
+                MessageBox.Show("This is not a dll !");
+            };
+        }
+
+
         public SuperCalculator3000()
         {
-            //IFunction function = Program.LoadFunction(path);
+            string featured = Path.GetFullPath("../../../../dll");
+            foreach (string filename in Directory.EnumerateFiles(featured))
+            {
+                LoadFunction(filename);
+            }
+            Output.Text = functions.Count().ToString();
             InitializeComponent();
         }
         private void Input_TextChanged(object sender, EventArgs e)
@@ -33,12 +68,13 @@ namespace SuperCalculator
         //loads new functions
         private void Load_Click(object sender, EventArgs e)
         {
+            string path;
             Stream myStream = null;
             OpenFileDialog openFileDialog = new OpenFileDialog
             {
                 InitialDirectory = "c:\\",
-                Filter = "dll files (*.dll)|*.dll|All files (*.*)|*.*",
-                FilterIndex = 2,
+                Filter = "dll files (*.dll)|*.dll",
+                FilterIndex = 1,
                 RestoreDirectory = true
             };
 
@@ -50,7 +86,9 @@ namespace SuperCalculator
                     {
                         using (myStream)
                         {
-                            Output.Text = openFileDialog.FileName;
+                            path = openFileDialog.FileName;
+                            LoadFunction(path);
+                            MessageBox.Show("Loaded" + path);
                         }
                     }
                 }
@@ -77,7 +115,7 @@ namespace SuperCalculator
         private void Save_Click(object sender, EventArgs e)
         {
             string[] lines = Output.Text.Split('\n');
-            System.IO.File.WriteAllLines(@"../../../computed.txt", lines);
+            File.WriteAllLines(@"../../../computed.txt", lines);
             MessageBox.Show("Operations Saved!");
         }
 
@@ -91,5 +129,7 @@ namespace SuperCalculator
         {
 
         }
+
+
     }
 }
