@@ -65,7 +65,7 @@
             this.Clear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.Clear.Location = new System.Drawing.Point(839, 602);
             this.Clear.Name = "Clear";
-            this.Clear.Size = new System.Drawing.Size(124, 36);
+            this.Clear.Size = new System.Drawing.Size(124, 35);
             this.Clear.TabIndex = 2;
             this.Clear.Text = "Clear";
             this.Clear.UseVisualStyleBackColor = true;
@@ -76,7 +76,7 @@
             this.Help.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Help.Location = new System.Drawing.Point(839, 12);
             this.Help.Name = "Help";
-            this.Help.Size = new System.Drawing.Size(124, 52);
+            this.Help.Size = new System.Drawing.Size(124, 54);
             this.Help.TabIndex = 3;
             this.Help.Text = "Help";
             this.Help.UseVisualStyleBackColor = true;
@@ -87,7 +87,7 @@
             this.Save.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.Save.Location = new System.Drawing.Point(839, 500);
             this.Save.Name = "Save";
-            this.Save.Size = new System.Drawing.Size(124, 38);
+            this.Save.Size = new System.Drawing.Size(124, 35);
             this.Save.TabIndex = 4;
             this.Save.Text = "Save";
             this.Save.UseVisualStyleBackColor = true;
@@ -123,6 +123,7 @@
             this.AcceptButton = this.Compute;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.SteelBlue;
             this.ClientSize = new System.Drawing.Size(975, 650);
             this.Controls.Add(this.Input);
@@ -134,6 +135,7 @@
             this.Controls.Add(this.Compute);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SuperCalculator3000";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SuperCalculator3000";
             this.ResumeLayout(false);
 
