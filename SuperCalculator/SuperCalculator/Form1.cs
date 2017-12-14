@@ -118,6 +118,10 @@ namespace SuperCalculator
                 {
                     eval = type.InvokeMember("Evaluate", BindingFlags.InvokeMethod, null, function, new object[] { data });
                 }
+                catch (EvaluationException e)
+                {
+                    result = e.Message;
+                }
                 catch
                 {
                     result = "Wrong parameters";

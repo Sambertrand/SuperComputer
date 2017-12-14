@@ -29,9 +29,18 @@ namespace Roots
 
         public List<double> Evaluate(string[] args)
         {
-            double[] coeffs = Array.ConvertAll(args, double.Parse);
-            Polynome.Polynome polynome = new Polynome.Polynome(coeffs);
-            return polynome.Roots();
+            double[] coeffs;
+            try
+            {
+                coeffs = (Array.ConvertAll(args, double.Parse));
+                Array.Reverse(coeffs);
+                Polynome.Polynome polynome = new Polynome.Polynome(coeffs);
+                return polynome.Roots();
+            }
+            catch
+            {
+                throw new EvaluationException("Error : Follow the syntax.");
+            }
         }
     }
 }
