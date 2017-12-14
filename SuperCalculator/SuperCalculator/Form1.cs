@@ -29,6 +29,7 @@ namespace SuperCalculator
                     {
                         IFunction function = (IFunction) Activator.CreateInstance(type);
                         functions.Add(function.Name, function);
+                        MessageBox.Show(function.Name);
                     }
                     catch
                     {

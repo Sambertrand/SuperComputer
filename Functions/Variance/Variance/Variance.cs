@@ -7,7 +7,7 @@ using SuperComputer;
 
 namespace Variance
 {
-    class Variance : Function<double>
+    public class Variance : Function<double>
     {
         private string name = "Variance";
         public string Name

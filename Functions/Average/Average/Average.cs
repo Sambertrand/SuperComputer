@@ -7,7 +7,7 @@ using SuperComputer;
 
 namespace Average
 {
-    class Average : Function<double>
+    public class Average : Function<double>
     {
         private string name = "Average";
         public string Name

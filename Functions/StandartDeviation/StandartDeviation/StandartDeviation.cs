@@ -7,7 +7,7 @@ using SuperComputer;
 
 namespace StandartDeviation
 {
-    class StandartDeviation : Function<double>
+    public class StandartDeviation : Function<double>
     {
         private string name = "StandartDeviation";
         public string Name

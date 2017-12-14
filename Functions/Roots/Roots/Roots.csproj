@@ -31,10 +31,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Polynome">
-      <HintPath>..\..\..\dll\Polynome.dll</HintPath>
+      <HintPath>..\..\..\dependancies\Polynome.dll</HintPath>
     </Reference>
     <Reference Include="SuperComputer">
-      <HintPath>..\..\..\dll\SuperComputer.dll</HintPath>
+      <HintPath>..\..\..\dependancies\SuperComputer.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
