@@ -111,7 +111,7 @@
 
         #endregion
 
-<<<<<<< HEAD
+
 
         new private System.Windows.Forms.Button Close;
 
@@ -121,8 +121,7 @@
         private System.Windows.Forms.RichTextBox Output;
         new private System.Windows.Forms.Button Select;
 
-=======
-        new private System.Windows.Forms.Button Close;
->>>>>>> compute
+       
+
     }
 }
