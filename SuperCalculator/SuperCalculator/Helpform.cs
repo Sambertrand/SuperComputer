@@ -34,8 +34,16 @@ namespace SuperCalculator
 
         //gets the help message of the selected function
         private void Select_Click(object sender, EventArgs e)
-        {           
-            Output.Text = SuperCalculator3000.functions[ComboFunctions.Text].HelpMessage;
+        {
+            Output.Text = "Help Message:\n";
+            Output.Text += SuperCalculator3000.functions[ComboFunctions.Text].HelpMessage + "\n\n";
+            Output.Text += "To use the function you have to input this:\n" +
+                SuperCalculator3000.functions[ComboFunctions.Text].Name + " ";            
+            foreach (string name in SuperCalculator3000.functions[ComboFunctions.Text].ParametersName)
+            {
+                Output.Text += name + " ";
+            }
+            
         }
     }
 }
