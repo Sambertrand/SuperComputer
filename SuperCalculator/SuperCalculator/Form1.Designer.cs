@@ -43,7 +43,7 @@
             this.Compute.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.Compute.Location = new System.Drawing.Point(648, 553);
             this.Compute.Name = "Compute";
-            this.Compute.Size = new System.Drawing.Size(124, 54);
+            this.Compute.Size = new System.Drawing.Size(124, 55);
             this.Compute.TabIndex = 0;
             this.Compute.Text = "Compute";
             this.Compute.UseVisualStyleBackColor = true;
@@ -52,7 +52,7 @@
             // Load
             // 
             this.Load.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Load.Location = new System.Drawing.Point(648, 70);
+            this.Load.Location = new System.Drawing.Point(648, 72);
             this.Load.Name = "Load";
             this.Load.Size = new System.Drawing.Size(124, 35);
             this.Load.TabIndex = 1;
@@ -63,7 +63,7 @@
             // Clear
             // 
             this.Clear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.Clear.Location = new System.Drawing.Point(648, 613);
+            this.Clear.Location = new System.Drawing.Point(648, 614);
             this.Clear.Name = "Clear";
             this.Clear.Size = new System.Drawing.Size(124, 35);
             this.Clear.TabIndex = 2;
@@ -85,7 +85,7 @@
             // Save
             // 
             this.Save.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.Save.Location = new System.Drawing.Point(648, 511);
+            this.Save.Location = new System.Drawing.Point(648, 512);
             this.Save.Name = "Save";
             this.Save.Size = new System.Drawing.Size(124, 35);
             this.Save.TabIndex = 4;

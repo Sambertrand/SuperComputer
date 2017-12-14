@@ -124,7 +124,7 @@ namespace SuperCalculator
                 {
                     result = e.Message;
                 }
-                catch
+                catch 
                 {
                     result = "Wrong parameters";
                 }
