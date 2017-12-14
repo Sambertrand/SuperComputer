@@ -7,9 +7,9 @@ using SuperComputer;
 
 namespace Roots
 {
-    public class Roots : Function<double[]>
+    public class Roots : Function<List<double>>
     {
-        private string name = "Get roots";
+        private string name = "Roots";
         public string Name
         {
             get { return name; }
@@ -27,11 +27,11 @@ namespace Roots
             get { return paramname; }
         }
 
-        public double[] Evaluate(string[] args)
+        public List<double> Evaluate(string[] args)
         {
             double[] coeffs = Array.ConvertAll(args, double.Parse);
             Polynome.Polynome polynome = new Polynome.Polynome(coeffs);
-            return polynome.Roots().ToArray();
+            return polynome.Roots();
         }
     }
 }
