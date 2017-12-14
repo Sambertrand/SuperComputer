@@ -15,13 +15,13 @@ namespace Roots
             get { return name; }
         }
 
-        private string help = "this is a help message";
+        private string help = "Gives the roots of a polynome (be carefull, double roots will show twice).";
         public string HelpMessage
         {
             get { return help; }
         }
 
-        private string[] paramname = { "Un polynome" };
+        private string[] paramname = { "coefficiant of x^n", "coefficiant of x^n-1", "coefficiant of x^n-2", "...", "coefficiant of x^0" };
         public string[] ParametersName
         {
             get { return paramname; }
