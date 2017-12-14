@@ -137,7 +137,15 @@ namespace SuperCalculator
                         result += " ,";
 
                     }
-                    result = result.Remove(result.Length - 2);
+                    try
+                    {
+                        result = result.Remove(result.Length - 2);
+                    }
+                    catch
+                    {
+                        result += "None";
+                    }
+                    
                     result += "]";
                 }
                 else if (eval != null)
@@ -165,8 +173,9 @@ namespace SuperCalculator
         private void Save_Click(object sender, EventArgs e)
         {
             string[] lines = Output.Text.Split('\n');
-            File.WriteAllLines(@"../../../computed.txt", lines);
-            MessageBox.Show("Operations Saved!");
+            File.WriteAllLines(@"../../../../SuperCalulator3000Save.txt", lines);
+            MessageBox.Show("Operations Saved!\n" 
+                + Path.GetFullPath(@"../../../../SuperCalulator3000Save.txt"));
         }
 
         //output text

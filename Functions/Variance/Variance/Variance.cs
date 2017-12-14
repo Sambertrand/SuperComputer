@@ -15,12 +15,12 @@ namespace Variance
             get { return name; }
         }
 
-        private string help = "Calculates the Variance of a pool of numbers(a,b;c) like so:\nVariance a b c";
+        private string help = "Calculates the Variance of a pool of numbers(I1,I2,I3,..., In-1, In)";
         public string HelpMessage
         {
             get { return help; }
         }
-        private string[] paramname = { "une pool de nombres" };
+        private string[] paramname = { "I1", "I2", "I3", "...", "In - 1", "In" };
         public string[] ParametersName
         {
             get { return paramname; }

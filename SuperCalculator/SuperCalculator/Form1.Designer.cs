@@ -41,6 +41,7 @@
             // Compute
             // 
             this.Compute.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.Compute.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Compute.Location = new System.Drawing.Point(648, 553);
             this.Compute.Name = "Compute";
             this.Compute.Size = new System.Drawing.Size(124, 55);
@@ -52,6 +53,7 @@
             // Load
             // 
             this.Load.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Load.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Load.Location = new System.Drawing.Point(648, 72);
             this.Load.Name = "Load";
             this.Load.Size = new System.Drawing.Size(124, 35);
@@ -63,6 +65,7 @@
             // Clear
             // 
             this.Clear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.Clear.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Clear.Location = new System.Drawing.Point(648, 614);
             this.Clear.Name = "Clear";
             this.Clear.Size = new System.Drawing.Size(124, 35);
@@ -74,6 +77,7 @@
             // Help
             // 
             this.Help.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Help.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Help.Location = new System.Drawing.Point(648, 12);
             this.Help.Name = "Help";
             this.Help.Size = new System.Drawing.Size(124, 54);
@@ -85,6 +89,7 @@
             // Save
             // 
             this.Save.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.Save.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Save.Location = new System.Drawing.Point(648, 512);
             this.Save.Name = "Save";
             this.Save.Size = new System.Drawing.Size(124, 35);
@@ -99,6 +104,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Output.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.Output.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Output.Location = new System.Drawing.Point(12, 12);
             this.Output.Name = "Output";
             this.Output.ReadOnly = true;
@@ -111,6 +117,7 @@
             // 
             this.Input.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.Input.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Input.Location = new System.Drawing.Point(12, 553);
             this.Input.Name = "Input";
             this.Input.Size = new System.Drawing.Size(630, 96);
