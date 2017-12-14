@@ -30,26 +30,45 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Helpform));
             this.Close = new System.Windows.Forms.Button();
+            this.Output = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // Close
             // 
-            this.Close.Location = new System.Drawing.Point(1, 2);
+            this.Close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.Close.Location = new System.Drawing.Point(304, 475);
             this.Close.Name = "Close";
-            this.Close.Size = new System.Drawing.Size(629, 521);
+            this.Close.Size = new System.Drawing.Size(152, 40);
             this.Close.TabIndex = 0;
-            this.Close.Text = "Click me to get help";
+            this.Close.Text = "Close";
             this.Close.UseVisualStyleBackColor = true;
             this.Close.Click += new System.EventHandler(this.Close_Click);
+            // 
+            // Output
+            // 
+            this.Output.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Output.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.Output.Location = new System.Drawing.Point(12, 12);
+            this.Output.Name = "Output";
+            this.Output.ReadOnly = true;
+            this.Output.Size = new System.Drawing.Size(444, 457);
+            this.Output.TabIndex = 1;
+            this.Output.Text = "";
+            this.Output.TextChanged += new System.EventHandler(this.Output_TextChanged);
             // 
             // Helpform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(630, 525);
+            this.BackColor = System.Drawing.Color.SteelBlue;
+            this.ClientSize = new System.Drawing.Size(468, 527);
+            this.Controls.Add(this.Output);
             this.Controls.Add(this.Close);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Helpform";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Helpform";
             this.ResumeLayout(false);
 
@@ -58,5 +77,6 @@
         #endregion
 
         private System.Windows.Forms.Button Close;
+        private System.Windows.Forms.RichTextBox Output;
     }
 }

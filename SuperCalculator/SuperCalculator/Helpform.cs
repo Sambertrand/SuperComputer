@@ -21,5 +21,14 @@ namespace SuperCalculator
         {
             Close();
         }
+
+        private void Output_TextChanged(object sender, EventArgs e)
+        {
+            foreach(var item in SuperCalculator3000.functions)
+            {
+                Output.Text += SuperCalculator3000.functions.Keys;
+            }
+
+        }
     }
 }

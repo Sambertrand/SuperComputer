@@ -16,7 +16,7 @@ namespace SuperCalculator
 {
     public partial class SuperCalculator3000 : Form
     {
-        public Dictionary<string, IFunction> functions = new Dictionary<string, IFunction>();
+        public static Dictionary<string, IFunction> functions = new Dictionary<string, IFunction>();
 
         private void LoadFunction(string path)
         {
