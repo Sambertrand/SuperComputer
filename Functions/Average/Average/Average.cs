@@ -15,7 +15,7 @@ namespace Average
             get { return name; }
         }
 
-        private string help = "Average(serie de nombre divisés par un espace";
+        private string help = "Calculates the average of a pool of numbers(a,b;c) like so:\nAverage a b c" ;
         public string HelpMessage
         {
             get { return help; }
@@ -28,8 +28,25 @@ namespace Average
 
         public double Evaluate(string[] args)
         {
-            double[] pool = Array.ConvertAll(args, double.Parse);
-            return pool.Average();
+            try
+            {
+                double[] pool = Array.ConvertAll(args, double.Parse);
+                if (pool.Count() > 0)
+                {
+                    return pool.Average();
+                }
+                else
+                {
+                    throw new EvaluationException("Error : Put at least one number");
+                }
+            }
+            catch
+            {
+                throw new EvaluationException("Error : Follow the syntax");
+            }
+               
+            
+                
         }
     }
 }
