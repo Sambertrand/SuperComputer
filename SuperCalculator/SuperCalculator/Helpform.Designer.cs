@@ -57,6 +57,6 @@
 
         #endregion
 
-        private System.Windows.Forms.Button Close;
+        new private System.Windows.Forms.Button Close;
     }
 }
