@@ -120,8 +120,5 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.RichTextBox Output;
         new private System.Windows.Forms.Button Select;
-
-       
-
     }
 }
