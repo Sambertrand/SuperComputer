@@ -15,7 +15,7 @@ namespace StandartDeviation
             get { return name; }
         }
 
-        private string help = "ecrire StandartDeviation(liste de nombres séparés d'un espace)";
+        private string help = "Calculates the standart deviation of a pool of numbers(a,b;c) like so:\nStandartDeviation a b c";
         public string HelpMessage
         {
             get { return help; }
@@ -28,19 +28,32 @@ namespace StandartDeviation
 
         public double Evaluate(string[] args)
         {
-            double[] pool = Array.ConvertAll(args, double.Parse);
-            double result = 0;
-            if (pool.Count() > 1)
+            try
             {
-                double avg = pool.Average();
-                double sum = pool.Sum(d => Math.Pow(d - avg, 2));
-                result = Math.Sqrt((sum) / (pool.Count() - 1));
+                double[] pool = Array.ConvertAll(args, double.Parse);
+                double result = 0;
+                if (pool.Count() > 1)
+                {
+                    double avg = pool.Average();
+                    double sum = pool.Sum(d => Math.Pow(d - avg, 2));
+                    result = Math.Sqrt((sum) / (pool.Count() - 1));
+                }
+                else if(pool.Count() == 1)
+                {
+                    result = 0;
+                }
+                else
+                {
+                    throw new EvaluationException("Error: Put at least one number");
+                }
+                return result;
             }
-            else
+            catch
             {
-                result = 0;
+                throw new EvaluationException("Error : Follow the syntax");
             }
-            return result;
+            
+            
         }
     }
 }
