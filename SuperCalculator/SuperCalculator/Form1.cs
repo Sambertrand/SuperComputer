@@ -18,6 +18,8 @@ namespace SuperCalculator
     {
         public static Dictionary<string, IFunction> functions = new Dictionary<string, IFunction>();
 
+        //Load the given dll into the dictionary 'functions'
+        //Need a dll inherited from the interface SuperComputer.dll
         private void LoadFunction(string path)
         {
             try
@@ -42,7 +44,8 @@ namespace SuperCalculator
             }
         }
 
-
+        //Construcor
+        //path is the directory of the featured dll
         public SuperCalculator3000(string path)
         {
             string featured = Path.GetFullPath(path);
@@ -56,13 +59,15 @@ namespace SuperCalculator
         {
             
         }
-        //va revoyer un 2eme form qui afiche chaque help d'afilé dans la text box
+
+        //Opens a new form to give hemp
         private void Help_Click_1(object sender, EventArgs e)
         {
             Helpform Helpform = new Helpform();
             Helpform.Show();
         }
 
+        //open a new file explorer
         //loads new functions
         private void Load_Click(object sender, EventArgs e)
         {
@@ -105,17 +110,23 @@ namespace SuperCalculator
             Output.Text = "";
         }
 
+        
         private string Calcul(string input)
         {
+            //cuts the input into the function and the parameters
             string result="";
             string[] stuff = input.Split(' ');
             string op = stuff[0];
             string[] data = stuff.Skip(1).ToArray();
+
+            //sees if the functions is already loaded
             if (functions.ContainsKey(op))
             {
                 IFunction function = functions[op];
                 Type type = function.GetType();
                 object eval = null;
+
+                //tries to invoke the evaluate method from the given function
                 try
                 {
                     eval = type.InvokeMember("Evaluate", BindingFlags.InvokeMethod, null, function, new object[] { data });
@@ -128,6 +139,8 @@ namespace SuperCalculator
                 {
                     result = "Wrong parameters";
                 }
+
+                //return a string based on the type of eval
                 if (eval is System.Collections.IEnumerable enumerable)
                 {
                     if (enumerable.GetType() == "".GetType())
@@ -166,7 +179,7 @@ namespace SuperCalculator
             return result;
         }
 
-        //gl
+        //use the Calcul method and display the result
         private void Compute_Click(object sender, EventArgs e)
         {
             Output.Text += ">" + Input.Text + "\n";
@@ -174,7 +187,7 @@ namespace SuperCalculator
             Input.Text = "";
         }
 
-        //save function
+        //saves the operations
         private void Save_Click(object sender, EventArgs e)
         {
             string[] lines = Output.Text.Split('\n');
@@ -183,7 +196,6 @@ namespace SuperCalculator
                 + Path.GetFullPath(@"../../../../SuperCalulator3000Save.txt"));
         }
 
-        //output text
         private void Ouput_TextChanged(object sender, EventArgs e)
         {
             
@@ -194,7 +206,7 @@ namespace SuperCalculator
 
         }
 
-        //for the test
+        //for the test, make it public
         public string GetCalcul(string input)
         {
             return Calcul(input);
