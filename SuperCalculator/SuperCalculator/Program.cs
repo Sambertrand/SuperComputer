@@ -17,7 +17,7 @@ namespace SuperCalculator
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new SuperCalculator3000());
+            Application.Run(new SuperCalculator3000("../../../../dll"));
         }
 
         

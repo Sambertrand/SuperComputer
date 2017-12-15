@@ -43,9 +43,9 @@ namespace SuperCalculator
         }
 
 
-        public SuperCalculator3000()
+        public SuperCalculator3000(string path)
         {
-            string featured = Path.GetFullPath("../../../../dll");
+            string featured = Path.GetFullPath(path);
             foreach (string filename in Directory.EnumerateFiles(featured))
             {
                 LoadFunction(filename);
@@ -189,6 +189,11 @@ namespace SuperCalculator
 
         }
 
+        //for the test
+        public string GetCalcul(string input)
+        {
+            return Calcul(input);
+        }
 
     }
 }
