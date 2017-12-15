@@ -130,23 +130,18 @@ namespace SuperCalculator
                 }
                 if (eval is System.Collections.IEnumerable enumerable)
                 {
-                    result = "[";
                     foreach (var item in enumerable)
                     {
                         result += item.ToString();
-                        result += " ,";
-
                     }
                     try
                     {
-                        result = result.Remove(result.Length - 2);
+                        result = result.Remove(result.Length - 1);
                     }
                     catch
                     {
                         result += "None";
                     }
-                    
-                    result += "]";
                 }
                 else if (eval != null)
                 {
