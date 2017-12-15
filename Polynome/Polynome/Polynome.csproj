@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="Polynome.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Test.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
