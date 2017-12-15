@@ -187,7 +187,7 @@ namespace SuperCalculator
             Input.Text = "";
         }
 
-        //saves the operations
+        //saves the operations into a text file
         private void Save_Click(object sender, EventArgs e)
         {
             string[] lines = Output.Text.Split('\n');

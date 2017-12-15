@@ -19,6 +19,7 @@ namespace Polynome
             get { return degree; }
         }
 
+        //Constructor
         public Polynome(double[] coeffs)
         {
             while (coeffs.Last() == 0 && coeffs.Length > 1)
@@ -28,6 +29,7 @@ namespace Polynome
             degree = this.coeffs.Length - 1;
         }
 
+        //Beautifull display
         public override string ToString()
         {
             string result = "";
@@ -63,6 +65,7 @@ namespace Polynome
             return result;
         }
 
+        //override + operator
         public static Polynome operator + (Polynome left, Polynome right)
         {
             Polynome smaller;
@@ -92,6 +95,7 @@ namespace Polynome
             return new Polynome(coefs);
         }
 
+        //override - operator
         public static Polynome operator - (Polynome left, Polynome right)
         {
             double[] invcoefs = new double[right.Degree + 1];
@@ -119,6 +123,7 @@ namespace Polynome
             return new Polynome(coefs);
         }
 
+        //return the root of the derivate of degree 1 
         public double FindRootsLine()
         {
             double result;
@@ -138,6 +143,7 @@ namespace Polynome
 
         }
 
+        //implement the numerical newton method
         private double newtmethod(double xo)
         {
             double xi = xo;
@@ -152,6 +158,7 @@ namespace Polynome
             return Math.Round(xo, 3);
         }
 
+        //apply a value to the polynome
         public double Apply(double val)
         {
             double result = coeffs[0];
@@ -164,6 +171,8 @@ namespace Polynome
             return result;
         }
         
+        //find roots of the polynome using tje newton method
+        //find the x0 by a recursive way
         public List<double> Roots()
         {
             List<double> roots = new List<double>();
@@ -173,7 +182,7 @@ namespace Polynome
             }
             if (Degree > 1)
             {
-                List<double> extrems = Extremi();
+                List<double> extrems = Extremums();
                 try { roots.Add(newtmethod(extrems.First() - 10)); }
                 catch (ArgumentException) { }
                 
@@ -189,7 +198,8 @@ namespace Polynome
             return roots;
         }
         
-        public List<double> Extremi()
+        //use Roots to find extemums of the polynome
+        public List<double> Extremums()
         {
             List<double> extrems = Derivate().Roots();
             return extrems;
